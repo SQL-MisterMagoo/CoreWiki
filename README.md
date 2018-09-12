@@ -36,6 +36,14 @@ Jeff has written about how he has the hardware configured as well as the softwar
 *  When coding with a guest, Jeff and the guest use [Visual Studio Live Share](https://github.com/MicrosoftDocs/live-share/blob/master/README.md) to work on code on screen at the same time.
 *  Jeff uses a bunch of great Visual Studio extensions, and you can find that list on the [WebTools repository](https://github.com/csharpfritz/Ignite2017-WebTools). 
 
+## Building CoreWiki
+
+Styles/Themes
+--------
+CoreWiki uses SASS and does not automatically compile new files, so you will need to install an extension in Visual Studio 
+
+* Visual Studio - https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebCompiler
+
 ## Watch recordings
 
 Archive of all shows from the stream can be found on [Jeff's YouTube 'Building the CoreWiki'](https://www.youtube.com/playlist?list=PLVMqA0_8O85yC78I4Xj7z48ES48IQBa7p)  playlist.
