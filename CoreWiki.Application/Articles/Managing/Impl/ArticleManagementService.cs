@@ -128,9 +128,10 @@ namespace CoreWiki.Application.Articles.Managing.Impl
 
 			IEnumerable<string> FindWikiArticleLinks(string content)
 			{
-				return Regex.Matches(content, articleLinksPattern)
-					.Select(match => match.Groups[2].Value)
-					.ToArray();
+				var regMatches = from Match match in Regex.Matches(content, articleLinksPattern)
+												 select match.Groups[2].Value;
+				return regMatches.ToArray();
+
 			}
 		}
 

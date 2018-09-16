@@ -1,0 +1,28 @@
+﻿@inherits BlazorLayoutComponent
+@{Localizer Localizer = new Localizer();
+  FakeUserManager UserManager = new FakeUserManager();
+} @*TODO Replace with real implementations*@
+
+<nav />
+
+<div class="container body-content">
+	@if ( UserManager.FindByEmailAsync("admin@corewiki.com") != null)
+	{
+		<div class="alert alert-danger" role="alert">
+			You still have the default administrator account enabled. Please create a new user with admin role and delete this account.
+		</div>
+	}
+	@Body
+	<hr />
+	<footer>
+		<div class="row justify-content-between">
+			<div class="col-sm-12 col-md-8">
+				&copy; @DateTime.UtcNow.Year - <a target="_blank" href="https://github.com/csharpfritz/CoreWiki">@Localizer["CopyrightLinkText"]</a>
+			</div>
+			<div class="col-sm-12 col-md-auto">
+				<partial name="_ThemePartial" />
+			</div>
+		</div>
+
+	</footer>
+</div>

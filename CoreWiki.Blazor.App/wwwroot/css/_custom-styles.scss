@@ -1,0 +1,29 @@
+﻿// This file is included in each of the Themes
+
+// Add additional styles here.
+// For example, overwrite certain styles or add new components.
+// Tip: You can use bootstrap's mixins here!
+
+
+// Contents normally written in site.css
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-top: 2rem;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.pageNumber {
+	margin: 0px 4px;
+}
+
+button.accept-policy {
+	font-size: 1rem;
+	line-height: inherit;
+}
