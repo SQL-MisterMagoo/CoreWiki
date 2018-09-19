@@ -10,7 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TODO\PageModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="App_Data\wikiContent.db" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +35,9 @@
     <Compile Include="..\CoreWiki\Configuration\Settings\Disqus.cs" Link="Configuration\Settings\Disqus.cs" />
     <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureApplicationLayer.cs" Link="Configuration\Startup\ConfigureApplicationLayer.cs" />
     <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureAutomapperServices.cs" Link="Configuration\Startup\ConfigureAutomapperServices.cs" />
+    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureDatabase.cs" Link="Configuration\Startup\ConfigureDatabase.cs" />
     <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureMediator.cs" Link="Configuration\Startup\ConfigureMediator.cs" />
+    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureScopedServices.cs" Link="Configuration\Startup\ConfigureScopedServices.cs" />
     <Compile Include="..\CoreWiki\Configuration\Startup\CoreWikiWebsiteProfile.cs" Link="Configuration\Startup\CoreWikiWebsiteProfile.cs" />
     <Compile Include="..\CoreWiki\Helpers\AriaHelper.cs" Link="Helpers\AriaHelper.cs" />
     <Compile Include="..\CoreWiki\Helpers\ArticleNotFoundInitializer.cs" Link="Helpers\ArticleNotFoundInitializer.cs" />
@@ -45,8 +55,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\CoreWiki\appsettings.Development.json" Link="appsettings.Development.json" />
-    <Content Include="..\CoreWiki\appsettings.json" Link="appsettings.json" />
+    <Content Include="..\CoreWiki\appsettings.Development.json" Link="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\CoreWiki\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\wikiContent.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -59,12 +76,14 @@
 		<PackageReference Include="MediatR" Version="5.1.0" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.1.0" />
 		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.3.0" />
+		<PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.42" />
 	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CoreWiki.Application\CoreWiki.Application.csproj" />
     <ProjectReference Include="..\CoreWiki.Data\CoreWiki.Data.EntityFramework.csproj" />
     <ProjectReference Include="..\CoreWiki.Notifications.Abstractions\CoreWiki.Notifications.Abstractions.csproj" />
+    <ProjectReference Include="..\CoreWiki.Notifications\CoreWiki.Notifications.csproj" />
   </ItemGroup>
 
   <ItemGroup>

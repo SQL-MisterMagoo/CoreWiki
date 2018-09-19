@@ -13,10 +13,11 @@ namespace CoreWiki.Blazor.Server
 
 		public static IWebHost BuildWebHost(string[] args) =>
 				WebHost.CreateDefaultBuilder(args)
-						.UseConfiguration(new ConfigurationBuilder()
-								.AddCommandLine(args)
-								.Build())
-						.UseStartup<Startup>()
+					.ConfigureAppConfiguration((hostingContext, config) =>
+					{
+						config.AddCommandLine(args);
+						config.AddJsonFile(@"bin\Debug\netcoreapp2.1\appsettings.json");
+					}).UseStartup<Startup>()
 						.Build();
 	}
 }
