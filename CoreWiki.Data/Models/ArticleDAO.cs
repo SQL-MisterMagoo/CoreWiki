@@ -74,9 +74,9 @@ namespace CoreWiki.Data.EntityFramework.Models
 
 				AuthorId = article.AuthorId,
 				AuthorName = article.AuthorName,
-				Comments = article.Comments.Select(c => CommentDAO.FromDomain(c)).ToHashSet(),
+				Comments = article.Comments.Select(c => CommentDAO.FromDomain(c)).ToList(),
 				Content = article.Content,
-				History = article.History.Select(h => ArticleHistoryDAO.FromDomain(h)).ToHashSet(),
+				History = article.History.Select(h => ArticleHistoryDAO.FromDomain(h)).ToList(),
 				Id = article.Id,
 				Published = article.Published,
 				Slug = article.Slug,
@@ -95,9 +95,9 @@ namespace CoreWiki.Data.EntityFramework.Models
 
 				AuthorId = AuthorId,
 				AuthorName = AuthorName,
-				Comments = Comments.Select(c => c.ToDomain()).ToHashSet(),
+				Comments = Comments.Select(c => c.ToDomain()).ToList(),
 				Content = Content,
-				History = History.Select(h => h.ToDomain()).ToHashSet(),
+				History = History.Select(h => h.ToDomain()).ToList(),
 				Id = Id,
 				Published = Published,
 				Slug = Slug,

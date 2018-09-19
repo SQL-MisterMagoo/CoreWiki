@@ -276,3 +276,5 @@ CoreWiki/wwwroot/lib/
 
 # Minified and generated files
 *.min.js
+/CoreWiki/wwwroot/css/themeMagoo.css
+/CoreWiki/wwwroot/css/themeMagoo.min.css

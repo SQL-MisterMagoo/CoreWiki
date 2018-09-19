@@ -56,13 +56,6 @@ namespace CoreWiki.ViewModels
 	}
 }
 
-namespace Microsoft.AspNetCore.Http
-{
-	public class CookieOptions
-	{
-		public DateTime Expires;
-	}
-}
 
 namespace Microsoft.AspNetCore.Mvc { }
 namespace Microsoft.AspNetCore.Mvc.RazorPages { }
