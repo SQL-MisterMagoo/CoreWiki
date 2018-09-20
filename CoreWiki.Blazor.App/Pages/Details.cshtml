@@ -2,8 +2,9 @@
 @using CoreWiki.Application.Common
 @using CoreWiki.Areas.Identity
 @using CoreWiki.Pages
-@inject MediatR.IMediator mediator;
-@inject AutoMapper.IMapper Mapper;
+@inject MediatR.IMediator mediator
+@inject AutoMapper.IMapper Mapper
+@inject IStringLocalizer<Details> Localizer
 
 <div class="card card-header">
 	<div class="container">
@@ -20,7 +21,7 @@
 						<div class="col-xl-8 small"><span class="text-muted">@Localizer["ReadingTime"]: </span><span class="badge badge-primary duration" data-duration="@Model.Article?.Content?.CalculateReadTime().TotalMilliseconds"></span></div>
 					</div>
 					<div class="row">
-						<div class="col-xl-12 small"><a asp-page="History" asp-route-slug="@Model.Article?.Slug">@string.Format(Localizer["HistoryFormat"], Model.Article?.Version)</a></div>
+						<div class="col-xl-12 small"><a asp-page="History" asp-route-slug="@Model.Article?.Slug">@string.Format(Localizer["HistoryFormat"].ToString(), Model.Article?.Version)</a></div>
 					</div>
 				</div>
 			</div>
@@ -43,25 +44,23 @@
 	<partial name="_CommentsPartial" model="Model" />
 </div>
 @functions {
-  Localizer Localizer ;
-  DetailsModel Model ;
-  Dictionary<string, object> ViewData ;
-  protected override async Task OnInitAsync()
-  {
-	  Localizer = new Localizer();
-	  Model = new DetailsModel(mediator, Mapper);
-	  ViewData = new Dictionary<string, object>();
-	  var result = await Model.OnGetAsync("home-page");
-	  var title = Localizer["Details"];
-	  if (!string.IsNullOrEmpty(Model?.Article?.Topic))
-	  {
-		  ViewData["Title"] = Model.Article?.Topic;
-	  }
-	  else
-	  {
-		  ViewData["Title"] = title;
-	  }
-  }
+DetailsModel Model;
+Dictionary<string, object> ViewData;
+protected override async Task OnInitAsync()
+{
+	Model = new DetailsModel(mediator, Mapper);
+	ViewData = new Dictionary<string, object>();
+	var result = await Model.OnGetAsync("home-page");
+	var title = Localizer["Details"];
+	if (!string.IsNullOrEmpty(Model?.Article?.Topic))
+	{
+		ViewData["Title"] = Model.Article?.Topic;
+	}
+	else
+	{
+		ViewData["Title"] = title;
+	}
+}
 }
 @*@section Scripts {
 		@await Html.PartialAsync("_EditorScript")

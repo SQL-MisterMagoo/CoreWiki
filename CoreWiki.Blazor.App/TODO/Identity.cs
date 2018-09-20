@@ -28,9 +28,8 @@ namespace CoreWiki.ViewModels
 	}
 	public class FakeUserManager
 	{
-		public async Task<FakeUser> FindByEmailAsync(string email)
+		public FakeUser FindByEmailAsync(string email)
 		{
-			await Task.Delay(10);
 			return new FakeUser();
 		}
 	}

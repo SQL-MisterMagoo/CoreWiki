@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Net.Mime;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc.Localization;
 
 namespace CoreWiki.Blazor.Server
 {
@@ -17,6 +18,7 @@ namespace CoreWiki.Blazor.Server
 		}
 
 		public IConfiguration Configuration { get; }
+
 		// This method gets called by the runtime. Use this method to add services to the container.
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)

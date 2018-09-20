@@ -1,6 +1,7 @@
 ﻿@inherits BlazorLayoutComponent
-@{Localizer Localizer = new Localizer();
-  FakeUserManager UserManager = new FakeUserManager();
+@inject IStringLocalizer<MainLayout> Localizer
+@{ FakeUserManager UserManager = new FakeUserManager();
+  
 } @*TODO Replace with real implementations*@
 
 <nav />

@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TODO\Localization.cs" />
     <Compile Remove="TODO\PageModel.cs" />
   </ItemGroup>
 
@@ -67,6 +68,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Models\Article.resx" Link="Globalization\Models\Article.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Models\Comment.resx" Link="Globalization\Models\Comment.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\PagerTagHelper.resx" Link="Globalization\PagerTagHelper.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\ArticleNotFound.resx" Link="Globalization\Pages\ArticleNotFound.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Components\CreateComments\CreateComments.resx" Link="Globalization\Pages\Components\CreateComments\CreateComments.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Components\ListComments\ListComments.resx" Link="Globalization\Pages\Components\ListComments\ListComments.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Create.resx" Link="Globalization\Pages\Create.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\CreateArticleFromLink.resx" Link="Globalization\Pages\CreateArticleFromLink.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Delete.resx" Link="Globalization\Pages\Delete.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Details.resx" Link="Globalization\Pages\Details.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Edit.resx" Link="Globalization\Pages\Edit.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Privacy.resx" Link="Globalization\Pages\Privacy.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Search.resx" Link="Globalization\Pages\Search.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Shared\_CookieConsentPartial.resx" Link="Globalization\Pages\Shared\_CookieConsentPartial.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Shared\_Layout.resx" Link="Globalization\Pages\Shared\_Layout.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Shared\_LoginPartial.resx" Link="Globalization\Pages\Shared\_LoginPartial.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Shared\_ThemePartial.resx" Link="Globalization\Pages\Shared\_ThemePartial.resx" />
+    <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\_ArticleRow.resx" Link="Globalization\Pages\_ArticleRow.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BlazoredLocalStorage" Version="0.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.5.1" />
@@ -100,6 +122,9 @@
     <Folder Include="Areas\Identity\" />
     <Folder Include="Configuration\Settings\" />
     <Folder Include="Configuration\Startup\" />
+    <Folder Include="Globalization\Models\" />
+    <Folder Include="Globalization\Pages\Components\CreateComments\" />
+    <Folder Include="Globalization\Pages\Components\ListComments\" />
     <Folder Include="Helpers\" />
     <Folder Include="Pages\Models\" />
   </ItemGroup>
