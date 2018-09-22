@@ -11,7 +11,7 @@ using CoreWiki.Application.Articles.Reading.Commands;
 using CoreWiki.Application.Articles.Reading.Queries;
 using CoreWiki.Application.Common;
 
-namespace CoreWiki.Pages
+namespace CoreWiki.Blazor.App.Pages.Models
 {
 	public class DetailsModel : PageModel
 	{

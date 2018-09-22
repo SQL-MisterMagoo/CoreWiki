@@ -1,0 +1,67 @@
+﻿@page "/edit"
+@page "/edit/{Slug}"
+
+@inject IStringLocalizer<EditModel> Localizer
+
+<h2>@Localizer["EditArticle"]</h2>
+<hr />
+<br />
+<div class="row">
+	<div class="col-md-12">
+		<form method="post">
+			<input type="hidden" asp-for="Article.Id" />
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Article.Topic" class="control-label"></label>
+				<input asp-for="Article.Topic" class="form-control" />
+				<span asp-validation-for="Article.Topic" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Article.Content" class="control-label"></label>
+				<textarea asp-for="Article.Content" class="form-control"></textarea>
+				<span asp-validation-for="Article.Content" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">@Localizer["Upload"]</span>
+					</div>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="inputGroupFile01" onchange="openFile(event)" />
+						<label class="custom-file-label" for="inputGroupFile01">@Localizer["ChooseFile"]</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-outline-primary">@Localizer["Save"]</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a href="/Details">@Localizer["GoHome"]</a>
+</div>
+
+@functions {
+	EditModel Model = new EditModel(default, default);
+	Dictionary<string, object> ViewData = new Dictionary<string, object>();
+
+	[Parameter] string Slug { get; set; }
+
+	protected override async Task OnInitAsync()
+	{
+
+		Model.Article = new ViewModels.ArticleEdit();
+		var title = Localizer["Edit"];
+		await Model.OnGetAsync(Slug);
+		if (!string.IsNullOrEmpty(Model.Article.Topic))
+		{
+			ViewData["Title"] = Model.Article.Topic;
+		}
+		else
+		{
+			ViewData["Title"] = title;
+		}
+	}
+}

@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TODO\Localization.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
 
@@ -19,8 +23,15 @@
 
   <ItemGroup>
     <Compile Include="..\CoreWiki\Areas\Identity\PolicyConstants.cs" Link="Areas\Identity\PolicyConstants.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleDetails.cs" Link="Pages\ViewModels\ArticleDetails.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\Comment.cs" Link="Pages\ViewModels\Comment.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleCreate.cs" Link="ViewModels\ArticleCreate.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleCreateFromLink.cs" Link="ViewModels\ArticleCreateFromLink.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleDelete.cs" Link="ViewModels\ArticleDelete.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleDetails.cs" Link="ViewModels\ArticleDetails.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleEdit.cs" Link="ViewModels\ArticleEdit.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleHistory.cs" Link="ViewModels\ArticleHistory.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleHistoryDetail.cs" Link="ViewModels\ArticleHistoryDetail.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\ArticleSummary.cs" Link="ViewModels\ArticleSummary.cs" />
+    <Compile Include="..\CoreWiki\ViewModels\Comment.cs" Link="ViewModels\Comment.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +39,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.5.1" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="2.1.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +51,10 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\Edit.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Shared\_ViewImports.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -47,6 +63,7 @@
   <ItemGroup>
     <Folder Include="Areas\Identity\" />
     <Folder Include="Helpers\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

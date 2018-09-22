@@ -19,5 +19,17 @@ namespace CoreWiki.ViewModels
 	public class ModelState
 	{
 		public bool IsValid;
+		private Dictionary<string, List<string>> _modelErrors  = new Dictionary<string, List<string>>();
+
+		public void AddModelError(string fieldName, string message)
+		{
+			var errors = _modelErrors[fieldName];
+			if (errors == null)
+			{
+				errors = new List<string>();
+			}
+			errors.Add(message);
+			_modelErrors[fieldName] = errors;
+		}
 	}
 }
