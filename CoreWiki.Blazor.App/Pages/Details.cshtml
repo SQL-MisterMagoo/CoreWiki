@@ -2,9 +2,9 @@
 @using CoreWiki.Application.Common
 @using CoreWiki.Areas.Identity
 @using CoreWiki.Pages
+@inject	IStringLocalizer<DetailsModel> Localizer
 @{ DetailsModel Model = new DetailsModel(default,default);
   Model.Article = new ViewModels.ArticleDetails();
-  Localizer Localizer = new Localizer();
   Dictionary<string, object> ViewData = new Dictionary<string, object>();}
 @{
 	var title = Localizer["Details"];
