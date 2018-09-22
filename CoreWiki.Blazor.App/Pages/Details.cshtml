@@ -53,6 +53,8 @@
 
 	  Model.Article = new ViewModels.ArticleDetails();
 	  var title = Localizer["Details"];
+		if (string.IsNullOrWhiteSpace(Slug))
+			Slug = UrlHelpers.HomePageSlug;
 	  await Model.OnGetAsync(Slug);
 	  if (!string.IsNullOrEmpty(Model.Article.Topic))
 	  {
