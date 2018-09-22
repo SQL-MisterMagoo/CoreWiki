@@ -10,7 +10,7 @@ namespace CoreWiki.Blazor.App
 		{
 			// Since Blazor is running on the server, we can use an application service
 			// to read the forecast data.
-			services.AddSingleton<WeatherForecastService>();
+			services.AddLocalization();
 		}
 
 		public void Configure(IBlazorApplicationBuilder app)
