@@ -28,6 +28,7 @@ namespace CoreWiki.Blazor.App
 
 			services.ConfigureAutomapper();
 			services.Configure<AppSettings>(Configuration);
+			services.AddAuthentication();
 			services.ConfigureDatabase(Configuration);
 			services.ConfigureScopedServices();
 			services.ConfigureApplicationServices();
@@ -56,6 +57,7 @@ namespace CoreWiki.Blazor.App
 
 		public void Configure(IBlazorApplicationBuilder app)
 		{
+			
 			app.AddComponent<App>("app");
 		}
 	}

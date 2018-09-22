@@ -39,6 +39,7 @@ namespace CoreWiki.Blazor.Server
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
 			app.UseResponseCompression();
+			app.UseAuthentication();
 
 			if (env.IsDevelopment())
 			{

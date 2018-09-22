@@ -1,4 +1,5 @@
 ﻿@page "/"
+@page "/Details/{Slug}"
 @using CoreWiki.Application.Common
 @using CoreWiki.Areas.Identity
 @using CoreWiki.Pages
@@ -33,7 +34,7 @@
 	<markdown markdown="Article?.Content" />
 
 	<div>
-		<a asp-page="/Edit" asp-route-slug="@Model.Article?.Slug" asp-policy="@PolicyConstants.CanEditArticles" class="btn btn-outline-info">@Localizer["Edit"]</a>
+		<a href="/Edit/@Model.Article?.Slug" asp-page="/Edit" asp-route-slug="@Model.Article?.Slug" asp-policy="@PolicyConstants.CanEditArticles" class="btn btn-outline-info">@Localizer["Edit"]</a>
 
 		@if (Model.Article?.Slug != UrlHelpers.HomePageSlug)
 		{
@@ -46,11 +47,20 @@
 @functions {
 DetailsModel Model;
 Dictionary<string, object> ViewData;
+
+[Parameter]
+string Slug { get; set; }
+
 protected override async Task OnInitAsync()
 {
 	Model = new DetailsModel(mediator, Mapper);
 	ViewData = new Dictionary<string, object>();
-	var result = await Model.OnGetAsync("home-page");
+
+
+	if (string.IsNullOrWhiteSpace(Slug))
+		Slug = "home-page";
+
+	var result = await Model.OnGetAsync(Slug);
 	var title = Localizer["Details"];
 	if (!string.IsNullOrEmpty(Model?.Article?.Topic))
 	{

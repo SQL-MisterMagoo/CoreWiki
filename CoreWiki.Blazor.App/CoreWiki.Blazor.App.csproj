@@ -44,7 +44,6 @@
     <Compile Include="..\CoreWiki\Helpers\ArticleNotFoundInitializer.cs" Link="Helpers\ArticleNotFoundInitializer.cs" />
     <Compile Include="..\CoreWiki\Helpers\ArticleNotFoundResult.cs" Link="Helpers\ArticleNotFoundResult.cs" />
     <Compile Include="..\CoreWiki\Helpers\NewCommentNotificationHandler.cs" Link="Helpers\NewCommentNotificationHandler.cs" />
-    <Compile Include="..\CoreWiki\Pages\Details.cshtml.cs" Link="Pages\Details.cshtml.cs" />
     <Compile Include="..\CoreWiki\ViewModels\ArticleCreate.cs" Link="Pages\ViewModels\ArticleCreate.cs" />
     <Compile Include="..\CoreWiki\ViewModels\ArticleCreateFromLink.cs" Link="Pages\ViewModels\ArticleCreateFromLink.cs" />
     <Compile Include="..\CoreWiki\ViewModels\ArticleDelete.cs" Link="Pages\ViewModels\ArticleDelete.cs" />
@@ -111,6 +110,10 @@
 
   <ItemGroup>
     <Content Update="Pages\Details.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\Edit.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
