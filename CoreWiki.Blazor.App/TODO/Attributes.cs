@@ -10,7 +10,7 @@ namespace CoreWiki.ViewModels
 	}
 }
 
-namespace System.ComponentModel.DataAnnotations
-{
-	public class Required : Attribute { }
-}
+//namespace System.ComponentModel.DataAnnotations
+//{
+//	public class Required : Attribute { }
+//}

@@ -3,6 +3,8 @@
 @page "/Details/{Slug}"
 
 @inject IStringLocalizer<DetailsModel> Localizer
+@inject MediatR.IMediator mediator
+@inject AutoMapper.IMapper mapper
 
 <div class="card card-header">
 	<div class="container">
@@ -43,18 +45,19 @@
 </div>
 
 @functions{
-  DetailsModel Model = new DetailsModel(default, default);
+  DetailsModel Model ;
   Dictionary<string, object> ViewData = new Dictionary<string, object>();
 
   [Parameter] string Slug { get; set; }
 
   protected override async Task OnInitAsync()
   {
+	  Model = new DetailsModel(mediator, mapper);
 
 	  Model.Article = new ViewModels.ArticleDetails();
 	  var title = Localizer["Details"];
-		if (string.IsNullOrWhiteSpace(Slug))
-			Slug = UrlHelpers.HomePageSlug;
+	  if (string.IsNullOrWhiteSpace(Slug))
+		  Slug = UrlHelpers.HomePageSlug;
 	  await Model.OnGetAsync(Slug);
 	  if (!string.IsNullOrEmpty(Model.Article.Topic))
 	  {

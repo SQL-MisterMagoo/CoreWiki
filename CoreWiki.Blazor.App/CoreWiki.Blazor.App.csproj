@@ -23,6 +23,10 @@
 
   <ItemGroup>
     <Compile Include="..\CoreWiki\Areas\Identity\PolicyConstants.cs" Link="Areas\Identity\PolicyConstants.cs" />
+    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureAutomapperServices.cs" Link="Configuration\Startup\ConfigureAutomapperServices.cs" />
+    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureDatabase.cs" Link="Configuration\Startup\ConfigureDatabase.cs" />
+    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureMediator.cs" Link="Configuration\Startup\ConfigureMediator.cs" />
+    <Compile Include="..\CoreWiki\Configuration\Startup\CoreWikiWebsiteProfile.cs" Link="Configuration\Startup\CoreWikiWebsiteProfile.cs" />
     <Compile Include="..\CoreWiki\ViewModels\ArticleCreate.cs" Link="ViewModels\ArticleCreate.cs" />
     <Compile Include="..\CoreWiki\ViewModels\ArticleCreateFromLink.cs" Link="ViewModels\ArticleCreateFromLink.cs" />
     <Compile Include="..\CoreWiki\ViewModels\ArticleDelete.cs" Link="ViewModels\ArticleDelete.cs" />
@@ -35,15 +39,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlazoredLocalStorage" Version="0.3.1" />
+		<PackageReference Include="AutoMapper" Version="7.0.1" />
+		<PackageReference Include="BlazoredLocalStorage" Version="0.3.1" />
+		<PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
+		<PackageReference Include="DiffPlex" Version="1.4.1" />
+		<PackageReference Include="HtmlSanitizer" Version="4.0.187" />
+		<PackageReference Include="Humanizer" Version="2.4.2" />
+		<PackageReference Include="MediatR" Version="5.1.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.5.1" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="2.1.1" />
-		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CoreWiki.Application\CoreWiki.Application.csproj" />
+    <ProjectReference Include="..\CoreWiki.Data.Abstractions\CoreWiki.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\CoreWiki.Data\CoreWiki.Data.EntityFramework.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,6 +75,8 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\" />
+    <Folder Include="Configuration\Settings\" />
+    <Folder Include="Configuration\Startup\" />
     <Folder Include="Helpers\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>

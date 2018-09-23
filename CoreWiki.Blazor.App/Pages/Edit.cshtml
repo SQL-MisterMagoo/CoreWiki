@@ -2,6 +2,8 @@
 @page "/edit/{Slug}"
 
 @inject IStringLocalizer<EditModel> Localizer
+@inject MediatR.IMediator mediator
+@inject AutoMapper.IMapper mapper
 
 <h2>@Localizer["EditArticle"]</h2>
 <hr />
@@ -44,24 +46,24 @@
 </div>
 
 @functions {
-	EditModel Model = new EditModel(default, default);
-	Dictionary<string, object> ViewData = new Dictionary<string, object>();
+  EditModel Model;
+  Dictionary<string, object> ViewData = new Dictionary<string, object>();
 
-	[Parameter] string Slug { get; set; }
+  [Parameter] string Slug { get; set; }
 
-	protected override async Task OnInitAsync()
-	{
-
-		Model.Article = new ViewModels.ArticleEdit();
-		var title = Localizer["Edit"];
-		await Model.OnGetAsync(Slug);
-		if (!string.IsNullOrEmpty(Model.Article.Topic))
-		{
-			ViewData["Title"] = Model.Article.Topic;
-		}
-		else
-		{
-			ViewData["Title"] = title;
-		}
-	}
+  protected override async Task OnInitAsync()
+  {
+	  Model = new EditModel(mediator, mapper);
+	  Model.Article = new ViewModels.ArticleEdit();
+	  var title = Localizer["Edit"];
+	  await Model.OnGetAsync(Slug);
+	  if (!string.IsNullOrEmpty(Model.Article.Topic))
+	  {
+		  ViewData["Title"] = Model.Article.Topic;
+	  }
+	  else
+	  {
+		  ViewData["Title"] = title;
+	  }
+  }
 }
