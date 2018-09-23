@@ -1,6 +1,7 @@
 ﻿@page "/edit"
 @page "/edit/{Slug}"
 
+@using CoreWiki.ViewModels
 @inject IStringLocalizer<EditModel> Localizer
 @inject MediatR.IMediator mediator
 @inject AutoMapper.IMapper mapper
@@ -14,13 +15,13 @@
 			<input type="hidden" asp-for="Article.Id" />
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<div class="form-group">
-				<label asp-for="Article.Topic" class="control-label"></label>
-				<input asp-for="Article.Topic" class="form-control" />
+				<label class="control-label">@Article.Topic</label>
+				<input asp-for="Article.Topic" class="form-control" value=@Article.Topic/>
 				<span asp-validation-for="Article.Topic" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="Article.Content" class="control-label"></label>
-				<textarea asp-for="Article.Content" class="form-control"></textarea>
+				<label asp-for="Article.Content" class="control-label">@Article.Content</label>
+				<textarea asp-for="Article.Content" class="form-control">@Article.Content</textarea>
 				<span asp-validation-for="Article.Content" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -35,18 +36,20 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-outline-primary">@Localizer["Save"]</button>
+				<button onclick=@Save class="btn btn-outline-primary">@Localizer["Save"]</button>
 			</div>
 		</form>
 	</div>
 </div>
 
 <div>
-	<a href="/Details">@Localizer["GoHome"]</a>
+	<a href="/Details/@UrlHelpers.HomePageSlug">@Localizer["GoHome"]</a>
 </div>
 
 @functions {
   EditModel Model;
+  ArticleEdit Article;
+
   Dictionary<string, object> ViewData = new Dictionary<string, object>();
 
   [Parameter] string Slug { get; set; }
@@ -60,10 +63,17 @@
 	  if (!string.IsNullOrEmpty(Model.Article.Topic))
 	  {
 		  ViewData["Title"] = Model.Article.Topic;
+		  Article = Model.Article;
 	  }
 	  else
 	  {
 		  ViewData["Title"] = title;
 	  }
+  }
+
+  async void Save()
+  {
+	  Model.Article = Article;
+	  await Model.OnPostAsync();
   }
 }

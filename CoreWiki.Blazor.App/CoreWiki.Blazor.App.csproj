@@ -93,6 +93,9 @@
 	<ItemGroup>
 		<Folder Include="Areas\Identity\" />
 		<Folder Include="Configuration\Settings\" />
+		<Folder Include="Globalization\Models\" />
+		<Folder Include="Globalization\Pages\Components\CreateComments\" />
+		<Folder Include="Globalization\Pages\Components\ListComments\" />
 		<Folder Include="Helpers\" />
 		<Folder Include="ViewModels\" />
 	</ItemGroup>
