@@ -15,6 +15,7 @@ namespace CoreWiki.Blazor.App
 			Configuration = services.BuildServiceProvider().GetService<IConfiguration>();
 			// Since Blazor is running on the server, we can use an application service
 			// to read the forecast data.
+			
 			services.AddLocalization();
 			services.ConfigureAutomapper();
 			services.ConfigureDatabase(Configuration);
@@ -22,6 +23,7 @@ namespace CoreWiki.Blazor.App
 
 		public void Configure(IBlazorApplicationBuilder app)
 		{
+			
 			app.AddComponent<App>("app");
 		}
 	}

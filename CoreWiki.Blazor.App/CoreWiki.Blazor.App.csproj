@@ -39,6 +39,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\CoreWiki\appsettings.Development.json" Link="appsettings.Development.json" />
+    <Content Include="..\CoreWiki\appsettings.json" Link="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
 		<PackageReference Include="AutoMapper" Version="7.0.1" />
 		<PackageReference Include="BlazoredLocalStorage" Version="0.3.1" />
 		<PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
