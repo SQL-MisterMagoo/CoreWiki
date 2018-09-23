@@ -23,8 +23,8 @@ namespace CoreWiki.Blazor.App
 			services.Configure<AppSettings>(Configuration);
 			//services.AddAuthentication();
 			services.ConfigureDatabase(Configuration);
-			//services.ConfigureScopedServices();
-			//services.ConfigureApplicationServices();
+			services.ConfigureScopedServices();
+			services.ConfigureApplicationServices();
 			services.AddMediator();
 			services.AddLocalization((options) => { options.ResourcesPath = "Globalization"; });
 		}
