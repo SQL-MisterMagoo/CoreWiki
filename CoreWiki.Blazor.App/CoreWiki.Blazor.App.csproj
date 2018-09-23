@@ -1,99 +1,110 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <OutputType>Exe</OutputType>
-    <LangVersion>7.3</LangVersion>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<OutputType>Exe</OutputType>
+		<LangVersion>7.3</LangVersion>
 
-    <!-- The linker is not beneficial for server-side execution. Re-enable this if you switch to WebAssembly execution. -->
-    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
-  </PropertyGroup>
+		<!-- The linker is not beneficial for server-side execution. Re-enable this if you switch to WebAssembly execution. -->
+		<BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="TODO\Localization.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="TODO\ArticleNotFoundResult.cs" />
+		<Compile Remove="TODO\Localization.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="compilerconfig.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Remove="compilerconfig.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="compilerconfig.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<_ContentIncludedByDefault Remove="compilerconfig.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="..\CoreWiki\Areas\Identity\PolicyConstants.cs" Link="Areas\Identity\PolicyConstants.cs" />
-    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureAutomapperServices.cs" Link="Configuration\Startup\ConfigureAutomapperServices.cs" />
-    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureDatabase.cs" Link="Configuration\Startup\ConfigureDatabase.cs" />
-    <Compile Include="..\CoreWiki\Configuration\Startup\ConfigureMediator.cs" Link="Configuration\Startup\ConfigureMediator.cs" />
-    <Compile Include="..\CoreWiki\Configuration\Startup\CoreWikiWebsiteProfile.cs" Link="Configuration\Startup\CoreWikiWebsiteProfile.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleCreate.cs" Link="ViewModels\ArticleCreate.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleCreateFromLink.cs" Link="ViewModels\ArticleCreateFromLink.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleDelete.cs" Link="ViewModels\ArticleDelete.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleDetails.cs" Link="ViewModels\ArticleDetails.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleEdit.cs" Link="ViewModels\ArticleEdit.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleHistory.cs" Link="ViewModels\ArticleHistory.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleHistoryDetail.cs" Link="ViewModels\ArticleHistoryDetail.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\ArticleSummary.cs" Link="ViewModels\ArticleSummary.cs" />
-    <Compile Include="..\CoreWiki\ViewModels\Comment.cs" Link="ViewModels\Comment.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\CoreWiki\Areas\Identity\PolicyConstants.cs" Link="Areas\Identity\PolicyConstants.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Settings\AppSettings.cs" Link="Configuration\Settings\AppSettings.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Settings\Comments.cs" Link="Configuration\Settings\Comments.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Settings\CommentsEngine.cs" Link="Configuration\Settings\CommentsEngine.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Settings\Connectionstrings.cs" Link="Configuration\Settings\Connectionstrings.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Settings\CspSettings.cs" Link="Configuration\Settings\CspSettings.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Settings\Disqus.cs" Link="Configuration\Settings\Disqus.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Startup\ConfigureAutomapperServices.cs" Link="Configuration\Startup\ConfigureAutomapperServices.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Startup\ConfigureDatabase.cs" Link="Configuration\Startup\ConfigureDatabase.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Startup\ConfigureMediator.cs" Link="Configuration\Startup\ConfigureMediator.cs" />
+		<Compile Include="..\CoreWiki\Configuration\Startup\CoreWikiWebsiteProfile.cs" Link="Configuration\Startup\CoreWikiWebsiteProfile.cs" />
+		<Compile Include="..\CoreWiki\Helpers\ArticleNotFoundInitializer.cs" Link="Helpers\ArticleNotFoundInitializer.cs" />
+		<Compile Include="..\CoreWiki\Helpers\ArticleNotFoundResult.cs" Link="Helpers\ArticleNotFoundResult.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleCreate.cs" Link="ViewModels\ArticleCreate.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleCreateFromLink.cs" Link="ViewModels\ArticleCreateFromLink.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleDelete.cs" Link="ViewModels\ArticleDelete.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleDetails.cs" Link="ViewModels\ArticleDetails.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleEdit.cs" Link="ViewModels\ArticleEdit.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleHistory.cs" Link="ViewModels\ArticleHistory.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleHistoryDetail.cs" Link="ViewModels\ArticleHistoryDetail.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\ArticleSummary.cs" Link="ViewModels\ArticleSummary.cs" />
+		<Compile Include="..\CoreWiki\ViewModels\Comment.cs" Link="ViewModels\Comment.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="..\CoreWiki\appsettings.Development.json" Link="appsettings.Development.json" />
-    <Content Include="..\CoreWiki\appsettings.json" Link="appsettings.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="..\CoreWiki\appsettings.Development.json" Link="appsettings.Development.json" />
+		<Content Include="..\CoreWiki\appsettings.json" Link="appsettings.json" />
+	</ItemGroup>
 
-  <ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="7.0.1" />
 		<PackageReference Include="BlazoredLocalStorage" Version="0.3.1" />
-		<PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
+		<!--<PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />-->
 		<PackageReference Include="DiffPlex" Version="1.4.1" />
 		<PackageReference Include="HtmlSanitizer" Version="4.0.187" />
 		<PackageReference Include="Humanizer" Version="2.4.2" />
 		<PackageReference Include="MediatR" Version="5.1.0" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.1.0" />
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.4.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.5.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.5.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.5.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.5.1" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="2.1.1" />
-  </ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CoreWiki.Application\CoreWiki.Application.csproj" />
-    <ProjectReference Include="..\CoreWiki.Data.Abstractions\CoreWiki.Data.Abstractions.csproj" />
-    <ProjectReference Include="..\CoreWiki.Data\CoreWiki.Data.EntityFramework.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CoreWiki.Application\CoreWiki.Application.csproj" />
+		<ProjectReference Include="..\CoreWiki.Data.Abstractions\CoreWiki.Data.Abstractions.csproj" />
+		<ProjectReference Include="..\CoreWiki.Data\CoreWiki.Data.EntityFramework.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Update="Pages\Details.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Edit.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\_ViewImports.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Update="Pages\Details.cshtml">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<Pack>$(IncludeRazorContentInPack)</Pack>
+		</Content>
+		<Content Update="Pages\Edit.cshtml">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<Pack>$(IncludeRazorContentInPack)</Pack>
+		</Content>
+		<Content Update="Shared\_ViewImports.cshtml">
+			<Pack>$(IncludeRazorContentInPack)</Pack>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Identity\" />
-    <Folder Include="Configuration\Settings\" />
-    <Folder Include="Configuration\Startup\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Areas\Identity\" />
+		<Folder Include="Configuration\Settings\" />
+		<Folder Include="Configuration\Startup\" />
+		<Folder Include="Helpers\" />
+		<Folder Include="ViewModels\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="compilerconfig.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="compilerconfig.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="App_Data\README.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="App_Data\README.md">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>

@@ -26,7 +26,7 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 		public ArticleDetails Article { get; set; }
 
-		[ViewDataAttribute]
+		//[ViewDataAttribute]
 		public string Slug { get; set; }
 
 		public async Task<IActionResult> OnGetAsync(string slug)
