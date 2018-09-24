@@ -89,6 +89,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\CoreWiki.Application\CoreWiki.Application.csproj" />
+		<ProjectReference Include="..\CoreWiki.Blazor.Components\CoreWiki.Blazor.Components.csproj" />
 		<ProjectReference Include="..\CoreWiki.Data.Abstractions\CoreWiki.Data.Abstractions.csproj" />
 		<ProjectReference Include="..\CoreWiki.Data\CoreWiki.Data.EntityFramework.csproj" />
 	</ItemGroup>

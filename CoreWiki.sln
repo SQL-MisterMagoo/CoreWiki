@@ -42,6 +42,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWiki.Blazor.Server", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWiki.Blazor.App", "CoreWiki.Blazor.App\CoreWiki.Blazor.App.csproj", "{FE3B3232-9E61-4D4A-A717-1916CA545727}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWiki.Blazor.Components", "CoreWiki.Blazor.Components\CoreWiki.Blazor.Components.csproj", "{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BlazorDebug|Any CPU = BlazorDebug|Any CPU
@@ -120,6 +122,14 @@ Global
 		{FE3B3232-9E61-4D4A-A717-1916CA545727}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE3B3232-9E61-4D4A-A717-1916CA545727}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE3B3232-9E61-4D4A-A717-1916CA545727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.BlazorDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.BlazorDebug|Any CPU.Build.0 = Debug|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.CoreWiki|Any CPU.ActiveCfg = Debug|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.CoreWiki|Any CPU.Build.0 = Debug|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995BC1A0-B045-4A3E-BA41-EB0DFF8FDF99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -27,3 +27,13 @@
 
 	</footer>
 </div>
+
+@functions {
+  protected override async Task OnAfterRenderAsync()
+  {
+	  await CoreWiki.Blazor.Components.HumanizerJsInterop.ShowTimeStamps();
+	  await CoreWiki.Blazor.Components.HumanizerJsInterop.ShowDuration();
+	  return;
+  }
+
+}
