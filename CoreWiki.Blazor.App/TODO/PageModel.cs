@@ -11,10 +11,22 @@ namespace CoreWiki.ViewModels
 		public void TryValidateModel(object model) { }
 		public ModelState ModelState;
 		public ViewResult Page() { return null; }
-		public FakeUser User;
+		public Data.EntityFramework.Security.CoreWikiUser User;
 		public RedirectResult Redirect(string target) { return new RedirectResult(target); }
 		public Response Response;
 		public Request Request;
+		public PageModel()
+		{
+			ModelState = new ModelState() { IsValid = true };
+			User = new Data.EntityFramework.Security.CoreWikiUser()
+			{
+				Id = "Fake User",
+				Email = "fakeuser@mail.com",
+				EmailConfirmed = true,
+				NormalizedUserName = "Fake User",
+				UserName = "Fake User"
+			};			
+		}
 	}
 	public class ModelState
 	{

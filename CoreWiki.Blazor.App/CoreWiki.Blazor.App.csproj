@@ -54,12 +54,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Models\Article.resx" Link="Globalization\Models\Article.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Models\Comment.resx" Link="Globalization\Models\Comment.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\ArticleNotFound.resx" Link="Globalization\Pages\ArticleNotFound.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Components\CreateComments\CreateComments.resx" Link="Globalization\Pages\Components\CreateComments\CreateComments.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Components\ListComments\ListComments.resx" Link="Globalization\Pages\Components\ListComments\ListComments.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Create.resx" Link="Globalization\Pages\Create.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\CreateArticleFromLink.resx" Link="Globalization\Pages\CreateArticleFromLink.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Delete.resx" Link="Globalization\Pages\Delete.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Details.resx" Link="Globalization\Pages\Details.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Edit.resx" Link="Globalization\Pages\Edit.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Privacy.resx" Link="Globalization\Pages\Privacy.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\Search.resx" Link="Globalization\Pages\Search.resx" />
+	  <EmbeddedResource Include="..\CoreWiki\Globalization\Pages\_ArticleRow.resx" Link="Globalization\Pages\_ArticleRow.resx" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="7.0.1" />
 		<PackageReference Include="BlazoredLocalStorage" Version="0.3.1" />
 		<!--<PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />-->
 		<PackageReference Include="DiffPlex" Version="1.4.1" />
 		<PackageReference Include="HtmlSanitizer" Version="4.0.187" />
 		<PackageReference Include="Humanizer" Version="2.4.2" />
+		<PackageReference Include="Markdig" Version="0.15.2" />
 		<PackageReference Include="MediatR" Version="5.1.0" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="5.1.0" />
 		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.4.1" />
