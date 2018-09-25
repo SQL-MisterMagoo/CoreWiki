@@ -5,7 +5,7 @@
 @inject IStringLocalizer<Edit> Localizer
 @inject MediatR.IMediator mediator
 @inject AutoMapper.IMapper mapper
-
+@inject IUriHelper uriHelper
 <h2>@Localizer["EditArticle"]</h2>
 <hr />
 <br />
@@ -21,7 +21,7 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Article.Content" class="control-label">@Article.Content</label>
-				<textarea asp-for="Article.Content" class="form-control">@Article.Content</textarea>
+				<textarea asp-for="Article.Content" class="form-control" bind="@Article.Content"></textarea>
 				<span asp-validation-for="Article.Content" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -56,7 +56,7 @@
 
   protected override async Task OnInitAsync()
   {
-	  Model = new EditModel(mediator, mapper);
+	  Model = new EditModel(mediator, mapper, uriHelper);
 	  Model.Article = new ViewModels.ArticleEdit();
 	  var title = Localizer["Edit"];
 	  await Model.OnGetAsync(Slug);
@@ -71,9 +71,12 @@
 	  }
   }
 
-  async void Save()
+  void Save()
   {
 	  Model.Article = Article;
-	  await Model.OnPostAsync();
+	  Model.OnPostAsync().GetAwaiter().OnCompleted(() =>
+	  {
+		  uriHelper.NavigateTo("/");
+	  });
   }
 }

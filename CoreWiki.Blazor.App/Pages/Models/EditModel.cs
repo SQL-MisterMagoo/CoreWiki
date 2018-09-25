@@ -14,6 +14,7 @@ using CoreWiki.Application.Articles.Managing.Queries;
 using CoreWiki.Application.Common;
 using Microsoft.AspNetCore.Authorization;
 using CoreWiki.Areas.Identity;
+using Microsoft.AspNetCore.Blazor.Services;
 
 namespace CoreWiki.Blazor.App.Pages.Models
 {
@@ -24,11 +25,13 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 		private readonly IMediator _mediator;
 		private readonly IMapper _mapper;
+		private readonly IUriHelper _uriHelper;
 
-		public EditModel(IMediator mediator, IMapper mapper)
+		public EditModel(IMediator mediator, IMapper mapper, IUriHelper uriHelper)
 		{
 			_mediator = mediator;
 			_mapper = mapper;
+			_uriHelper = uriHelper;
 		}
 
 		//[BindProperty]
@@ -80,10 +83,10 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 			if (listOfSlugs.Any())
 			{
-				return Redirect($"CreateArticleFromLink/{UrlHelpers.URLFriendly(Article.Topic)}");
+				return Redirect($"CreateArticleFromLink/{UrlHelpers.URLFriendly(Article.Topic)}", _uriHelper);
 			}
 
-			return Redirect($"/wiki/{(UrlHelpers.URLFriendly(Article.Topic) == UrlHelpers.HomePageSlug ? "" : UrlHelpers.URLFriendly(Article.Topic))}");
+			return Page();
 
 		}
 

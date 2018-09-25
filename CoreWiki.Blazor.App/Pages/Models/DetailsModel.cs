@@ -10,6 +10,7 @@ using AutoMapper;
 using CoreWiki.Application.Articles.Reading.Commands;
 using CoreWiki.Application.Articles.Reading.Queries;
 using CoreWiki.Application.Common;
+using Microsoft.AspNetCore.Blazor.Services;
 
 namespace CoreWiki.Blazor.App.Pages.Models
 {
@@ -17,11 +18,13 @@ namespace CoreWiki.Blazor.App.Pages.Models
 	{
 		private readonly IMediator _mediator;
 		private readonly IMapper _mapper;
+		private readonly IUriHelper _uriHelper;
 
-		public DetailsModel(IMediator mediator, IMapper mapper)
+		public DetailsModel(IMediator mediator, IMapper mapper, IUriHelper uriHelper)
 		{
 			_mediator = mediator;
 			_mapper = mapper;
+			_uriHelper = uriHelper;
 		}
 
 		public ArticleDetails Article { get; set; }
@@ -42,7 +45,7 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 				if (historical != null)
 				{
-					return new RedirectResult($"~/wiki/{historical.Article.Slug}");
+					return new RedirectResult($"~/wiki/{historical.Article.Slug}", _uriHelper);
 				}
 				return new ArticleNotFoundResult(slug);
 			}
@@ -90,7 +93,7 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 			await _mediator.Send(commentCmd);
 
-			return Redirect($"/wiki/{article.Slug}");
+			return Redirect($"/Details/{article.Slug}",_uriHelper);
 		}
 	}
 }
