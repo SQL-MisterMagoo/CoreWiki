@@ -57,37 +57,36 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 		}
 
-		public async Task<IActionResult> OnPostAsync()
+		public RedirectResult Save()
 		{
 			if (!ModelState.IsValid)
 			{
-				return Page();
+				return null;
 			}
 
 			var cmd = _mapper.Map<EditArticleCommand>(Article);
 			cmd =_mapper.Map(User, cmd);
 
-			var result = await _mediator.Send(cmd);
+			var result = _mediator.Send(cmd).GetAwaiter().GetResult();
 
 			if (result.Exception is InvalidTopicException)
 			{
 				ModelState.AddModelError("Article.Topic", result.Exception.Message);
-				return Page();
+				return null;
 			} else if (result.Exception is ArticleNotFoundException)
 			{
-				return new ArticleNotFoundResult();
+				return new RedirectResult("/") { _uriHelper = _uriHelper };
 			}
 
 			var query = new GetArticlesToCreateFromArticleQuery(UrlHelpers.URLFriendly(Article.Topic));
-			var listOfSlugs = await _mediator.Send(query);
+			var listOfSlugs = _mediator.Send(query).GetAwaiter().GetResult();
 
 			if (listOfSlugs.Any())
 			{
-				return Redirect($"CreateArticleFromLink/{UrlHelpers.URLFriendly(Article.Topic)}", _uriHelper);
+				return new RedirectResult($"/CreateArticleFromLink/{UrlHelpers.URLFriendly(Article.Topic)}") { _uriHelper = _uriHelper };
 			}
 
-			return Page();
-
+			return new RedirectResult($"/Details/{UrlHelpers.URLFriendly(Article.Topic)}") { _uriHelper = _uriHelper };
 		}
 
 		

@@ -32,7 +32,7 @@ namespace CoreWiki.Blazor.App.Pages.Models
 		//[ViewDataAttribute]
 		public string Slug { get; set; }
 
-		public async Task<IActionResult> OnGetAsync(string slug)
+		public async Task<RedirectResult> OnGetAsync(string slug)
 		{
 
 			slug = slug ?? UrlHelpers.HomePageSlug;
@@ -45,16 +45,16 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 				if (historical != null)
 				{
-					return new RedirectResult($"~/wiki/{historical.Article.Slug}", _uriHelper);
+					return new RedirectResult($"~/wiki/{historical.Article.Slug}");
 				}
-				return new ArticleNotFoundResult(slug);
+				return new RedirectResult("/");
 			}
 
 			Article = _mapper.Map<ArticleDetails>(article); 
 
 			ManageViewCount(slug);
 
-			return Page();
+			return null;
 		}
 
 		private void ManageViewCount(string slug)
@@ -73,19 +73,19 @@ namespace CoreWiki.Blazor.App.Pages.Models
 			_mediator.Send(new IncrementViewCountCommand(slug));
 		}
 
-		public async Task<IActionResult> OnPostAsync(Comment model)
+		public async Task<RedirectResult> OnPostAsync(Comment model)
 		{
 
 			TryValidateModel(model);
 
 			if (!ModelState.IsValid)
-				return Page();
+				return null;
 
 			var article = await _mediator.Send(new GetArticleByIdQuery(model.ArticleId));
 
 			if (article == null)
 			{
-				return new ArticleNotFoundResult();
+				return null;
 			}
 
 			var commentCmd = _mapper.Map<CreateNewCommentCommand>(model);
@@ -93,7 +93,7 @@ namespace CoreWiki.Blazor.App.Pages.Models
 
 			await _mediator.Send(commentCmd);
 
-			return Redirect($"/Details/{article.Slug}",_uriHelper);
+			return Redirect($"/Details/{article.Slug}");
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace CoreWiki.ViewModels
 		public ModelState ModelState;
 		public ViewResult Page() { return null; }
 		public ClaimsPrincipal User;
-		public RedirectResult Redirect(string target,IUriHelper uriHelper) { return new RedirectResult(target,uriHelper); }
+		public RedirectResult Redirect(string target) { return new RedirectResult(target); }
 		public Response Response;
 		public Request Request;
 		public PageModel()
